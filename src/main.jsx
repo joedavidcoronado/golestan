@@ -13,6 +13,7 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import SystemPage from './pages/SystemPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import ExperiencesPage from './pages/ExperiencesPage.jsx';
+import Footer from './components/Footer.jsx';
 
 
 
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/contactanos" element={<ContactPage />} />
         <Route path="/experiencias" element={<ExperiencesPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </StrictMode>
 )

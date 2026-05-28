@@ -1,110 +1,218 @@
+/* ==========================================================================
+   FOOTER BASE
+   ========================================================================== */
 .footer {
-  /* Usamos el verde principal degradado hacia un tono más profundo */
-  background: linear-gradient(
-    180deg, 
-    var(--cbb-verde-principal) 0%, 
-    #002b25 100%
-  );
-  color: white;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  font-family: var(--font-primary);
+  background: linear-gradient(180deg, #0e2205 0%, #071402 100%);
+  font-family: 'Century Gothic', 'AppleGothic', 'Gill Sans', sans-serif;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 4rem 1.5rem 0;
+  border-top: 1px solid rgba(138, 240, 3, 0.1);
+  position: relative;
+  width: 100%;
 }
 
-.footerContent {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.footer *,
+.footer *::before,
+.footer *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
   padding-bottom: 3rem;
 }
 
-.logoImg {
-  width: 150px;
-  margin-bottom: 1.5rem;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s ease;
+/* ==========================================================================
+   COLUMNS STYLING (Mobile-First)
+   ========================================================================== */
+/* Branding */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.logoImg:hover {
-  transform: translateY(-3px);
+.logo {
+  height: 45px;
+  width: auto;
+  align-self: flex-start;
+  filter: drop-shadow(0 0 15px rgba(138, 240, 3, 0.15));
 }
 
-.footerCopy {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+.tagline {
+  font-size: 0.85rem;
   line-height: 1.6;
-}
-
-.footerHeading {
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1.8rem;
-  color: var(--cbb-verde-limon); /* Color de acento para jerarquía */
-}
-
-.footerText {
-  font-family: var(--font-secondary);
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
-}
-
-.footerLinks {
-  list-style: none;
-  padding: 0;
-}
-
-.footerLinks li {
-  margin-bottom: 0.8rem;
-}
-
-.footerLinks a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-family: var(--font-secondary);
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.footerLinks a:hover {
-  color: white;
-  transform: translateX(5px); /* Efecto de desplazamiento al pasar el mouse */
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  max-width: 320px;
 }
 
 /* Redes Sociales */
 .socialWrapper {
   display: flex;
-  gap: 15px;
-  margin-top: 1.5rem;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
 }
 
-.footerSocial {
-  background: rgba(255, 255, 255, 0.1);
-  width: 40px;
-  height: 40px;
-  display: flex;
+.socialLink {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  color: white;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.25s ease;
 }
 
-.footerSocial:hover {
-  background: var(--cbb-verde-llano);
-  color: white;
-  transform: scale(1.1);
+.socialIcon {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff; /* Totalmente blancos por defecto */
+  transition: fill 0.25s ease;
 }
 
-/* Sección final de créditos */
-.copyrightSection {
-  padding-top: 2rem;
+.socialLink:hover {
+  background: rgba(138, 240, 3, 0.1);
+  border-color: #8AF003;
+  transform: translateY(-2px);
+}
+
+.socialLink:hover .socialIcon {
+  fill: #8AF003; /* Cambio a verde neón dinámico al hacer hover */
+}
+
+/* Títulos de las columnas */
+.colTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #8AF003;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Listas comunes */
+.linksList,
+.contactInfo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Enlaces de navegación */
+.linksList a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s, padding-left 0.2s;
+  display: inline-block;
+}
+
+.linksList a:hover {
+  color: #4ADBFF;
+  padding-left: 4px;
+}
+
+/* Información de contacto */
+.contactInfo li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #8AF003;
+}
+
+/* ==========================================================================
+   BOTTOM BAR (Copyright)
+   ========================================================================== */
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem 0;
+  margin-top: 1rem;
+}
+
+.bottomContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   text-align: center;
 }
 
-.copyrightSection p {
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
+.copyright {
+  font-size: 0.75rem;
+  margin: 0;
   color: rgba(255, 255, 255, 0.4);
+}
+
+.copyright strong {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.legal {
+  font-size: 0.7rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   TABLET & DESKTOP (768px+)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 2rem;
+  }
+
+  .bottomContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 5rem 2rem 0;
+  }
+  
+  .container {
+    gap: 4rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
 }
