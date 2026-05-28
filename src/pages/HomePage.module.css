@@ -530,7 +530,7 @@
 /* ============================
    KEYFRAMES GLOBALES (Ken Burns)
    ============================ */
-:global {
+
   @keyframes kenburns0 {
     from { transform: scale(1)    translate(0, 0);      }
     to   { transform: scale(1.12) translate(-2%, -2%);  }
@@ -547,7 +547,7 @@
     from { transform: scale(1.08) translate(-1%, -1%);  }
     to   { transform: scale(1)    translate(2%, 2%);    }
   }
-}
+
 
 /* ============================
    EXPERIENCIAS — mobile base
