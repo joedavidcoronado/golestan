@@ -7,7 +7,7 @@ const navLinks = [
   { label: '¿Quiénes somos?', to: '/quienes-somos' },
   { label: 'Servicios',       to: '/catalogo' },
   { label: 'Gestión',         to: '/sistema-de-gestion' },
-  { label: 'Experiencias',    to: '/experiencias' },
+  { label: 'Experiencias',    to: '/experiencias' }
 ];
 
 export default function Header() {
@@ -49,14 +49,13 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://wa.me/NUMERO_CORPORATIVO"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              key='/contactanos'
+              to='/contactanos'
               className={styles.navCta}
             >
               Contáctanos
-            </a>
+            </Link>
           </nav>
 
           <button

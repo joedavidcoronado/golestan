@@ -1,0 +1,517 @@
+/* ============================
+   BOX SIZING
+   ============================ */
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+/* ============================
+   BASE
+   ============================ */
+.page {
+  font-family: 'Century Gothic', 'AppleGothic', 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  color: #1a2e05;
+  background: #f7fcef;
+  min-height: 100svh;
+}
+
+/* ============================
+   HERO — mobile base
+   ============================ */
+.hero {
+  position: relative;
+  padding: 7rem 1.5rem 5rem;
+  background-image:
+    linear-gradient(160deg, rgba(14, 34, 5, 0.88) 0%, rgba(30, 74, 10, 0.78) 50%, rgba(13, 61, 61, 0.88) 100%),
+    url("/services.jpeg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(138, 240, 3, 0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 30%, rgba(74, 219, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.heroEyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8AF003;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 14vw, 5.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  margin: 0 0 1.5rem;
+  text-shadow: 0 0 60px rgba(138, 240, 3, 0.25);
+}
+
+.heroTitle em {
+  font-style: normal;
+  color: #8AF003;
+}
+
+.heroSub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.heroScroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.heroScroll span {
+  display: block;
+  width: 20px;
+  height: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  position: relative;
+}
+
+.heroScroll span::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 6px;
+  background: #8AF003;
+  border-radius: 2px;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+  0%   { opacity: 1; top: 5px; }
+  100% { opacity: 0; top: 18px; }
+}
+
+/* ============================
+   TAB BAR — mobile base
+   ============================ */
+.tabBar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tab:hover {
+  border-color: var(--tab-accent);
+  color: var(--tab-accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tabActive {
+  background: var(--tab-accent);
+  border-color: var(--tab-accent);
+  color: #0e2205;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--tab-accent) 45%, transparent);
+}
+
+.tabIcon {
+  font-size: 0.9rem;
+}
+
+/* ============================
+   CONTENT — mobile base
+   ============================ */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* SERVICE HEADER */
+.serviceHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+.serviceHeaderIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.serviceHeaderTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a2e05;
+  margin: 0 0 0.25rem;
+  line-height: 1;
+}
+
+.serviceHeaderHero {
+  font-size: 0.88rem;
+  color: #5a7040;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* BLOCK */
+.block {
+  margin-bottom: 2rem;
+}
+
+.blockLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
+  padding-left: 0.1rem;
+}
+
+.blockLabelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ============================
+   ACCORDION — mobile base
+   ============================ */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accordionItem {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0f0c0;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.accordionOpen {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.accordionTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.accordionName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a2e05;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.accordionOpen .accordionName {
+  color: color-mix(in srgb, var(--accent) 80%, #1a2e05);
+}
+
+.accordionIcon {
+  color: var(--accent);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.accordionOpen .accordionIcon {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.accordionBody {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.32s ease, padding 0.32s ease;
+  padding: 0 1.1rem;
+}
+
+.accordionOpen .accordionBody {
+  max-height: 200px;
+  padding: 0 1.1rem 1rem;
+}
+
+.accordionBody p {
+  font-size: 0.85rem;
+  color: #5a7040;
+  line-height: 1.75;
+  margin: 0;
+  border-top: 1px solid #e8f5d0;
+  padding-top: 0.75rem;
+}
+
+/* ============================
+   CTA — mobile base
+   ============================ */
+.cta {
+  background: linear-gradient(135deg, #0d3d3d 0%, #0a2a5e 100%);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.ctaInner {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.ctaText {
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1.5rem;
+  line-height: 1.3;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  color: #ffffff;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  min-height: 48px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.4);
+}
+
+.ctaBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.65);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ============================
+   TABLET — 600px+
+   ============================ */
+@media (min-width: 600px) {
+  .hero {
+    padding: 8rem 2rem 6rem;
+  }
+  
+
+  .tabBar {
+    gap: 0.75rem;
+  }
+
+  .tab {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.88rem;
+  }
+
+  .content {
+    padding: 3rem 2rem 5rem;
+  }
+
+  .serviceHeader {
+    padding: 2rem;
+    gap: 1.25rem;
+  }
+
+  .serviceHeaderIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+
+  .serviceHeaderTitle {
+    font-size: 1.6rem;
+  }
+
+  .serviceHeaderHero {
+    font-size: 0.95rem;
+  }
+
+  .accordionTrigger {
+    padding: 1.1rem 1.4rem;
+  }
+
+  .accordionName {
+    font-size: 0.95rem;
+  }
+
+  .accordionBody {
+    padding: 0 1.4rem;
+  }
+
+  .accordionOpen .accordionBody {
+    padding: 0 1.4rem 1.1rem;
+  }
+}
+
+/* ============================
+   DESKTOP — 1024px+
+   ============================ */
+@media (min-width: 1024px) {
+  .hero {
+    padding: 9rem 2rem 7rem;
+  }
+
+  .tab {
+    padding: 0.85rem 2rem;
+    font-size: 0.92rem;
+  }
+
+  .tabIcon {
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: 4rem 2rem 6rem;
+  }
+
+  .serviceHeader {
+    padding: 2rem 2.5rem;
+    align-items: center;
+  }
+
+  .serviceHeaderIcon {
+    width: 68px;
+    height: 68px;
+    font-size: 1.8rem;
+    border-radius: 18px;
+  }
+
+  .serviceHeaderTitle {
+    font-size: 1.9rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .serviceHeaderHero {
+    font-size: 1rem;
+  }
+
+  .blockLabel {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .accordionTrigger {
+    padding: 1.1rem 1.5rem;
+  }
+
+  .accordionName {
+    font-size: 1rem;
+  }
+
+  .accordionBody {
+    padding: 0 1.5rem;
+  }
+
+  .accordionOpen .accordionBody {
+    padding: 0 1.5rem 1.25rem;
+  }
+
+  .accordionBody p {
+    font-size: 0.9rem;
+  }
+
+  .cta {
+    padding: 6rem 2rem;
+  }
+}
